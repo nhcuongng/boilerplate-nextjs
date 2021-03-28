@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { Container } from '@components/layout';
 import styles from '@styles/post.module.scss';
-import { withAuth } from '@components/hoc';
 
 /**
  * sấccsacasc
@@ -34,4 +33,4 @@ const Home = () => (
   </Container>
 );
 
-export default withAuth(Home);
+export default Home;
