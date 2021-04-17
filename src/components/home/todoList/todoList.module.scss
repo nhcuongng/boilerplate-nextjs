@@ -1,0 +1,49 @@
+.list {
+  list-style: none;
+  padding: 0px;
+  margin: 50px;
+  width: 100%;
+  .content {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    cursor: pointer;
+    width: 100%;
+
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      .editIcon {
+        opacity: 1;
+      }
+    }
+
+    .editIcon {
+      opacity: 0;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+
+
+  .done {
+    text-decoration: line-through;
+  }
+
+  .status {
+    padding: 5px 10px;
+    font-style: italic;
+  }
+  .statusDone {
+    background-color: #42f557;
+  }
+
+  .statusDoing {
+    background-color: #f54e42;
+  }
+
+}

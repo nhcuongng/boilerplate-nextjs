@@ -1,8 +1,9 @@
+import CardStyle from '@styles/post.module.scss';
 import Head from 'next/head';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import Link from 'next/link';
-import CardStyle from '@styles/post.module.scss';
+
 import styles from './container.module.scss';
 
 type TProp = {
@@ -17,19 +18,16 @@ export const Container: React.FC<TProp> = ({ children }) => {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossOrigin="anonymous" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to
-          {' '}
-          <a href="https://nextjs.org">Next.js!</a>
+          Todo App
         </h1>
 
         <p className={styles.description}>
-          Get started by editing
-          {' '}
-          <code className={styles.code}>pages/index.js</code>
+          Boilerplate code next js
         </p>
         {children}
         {router.pathname !== '/' && (
