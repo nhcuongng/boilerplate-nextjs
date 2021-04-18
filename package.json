@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint \"**/*.{ts,tsx}\" --ignore-pattern node_modules/"
+    "lint": "eslint \"**/*.{ts,tsx}\" --ignore-pattern node_modules/",
+    "gen-env-example": "npx gen-env-types .env -o src/@types/env.d.ts -e ."
   },
   "dependencies": {
     "axios": "^0.21.1",

@@ -42,6 +42,21 @@
   │   └── post.module.scss
 ```
 
+## Scripts
+
+```ts
+// start the dev server
+"dev": "next dev",
+// build
+"build": "next build",
+// start build
+"start": "next start",
+// linter all project ignore node modules
+"lint": "eslint \"**/*.{ts,tsx}\" --ignore-pattern node_modules/",
+// gen types for env and env.example file base from file .env 
+"gen-env-example": "npx gen-env-types .env -o src/@types/env.d.ts -e ."
+```
+
 ## Coding styles
 
 - Một component để dễ đọc dễ viết chỉ nên viết khoảng 100-150 dòng
