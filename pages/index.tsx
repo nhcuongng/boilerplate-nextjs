@@ -1,8 +1,8 @@
 import 'react-toastify/dist/ReactToastify.css';
-import React from 'react';
 
-import { Container } from '@components/layout';
 import { TodoList } from '@components/home';
+import { Container } from '@components/layout';
+import React from 'react';
 
 /**
  * Home component
