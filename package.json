@@ -7,11 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"**/*.{ts,tsx}\" --ignore-pattern node_modules/",
-    "gen-env-example": "npx gen-env-types .env -o src/@types/env.d.ts -e ."
+    "gen-env-example": "npx gen-env-types .env.local -o src/@types/env.d.ts -e ."
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "dotenv-webpack": "^7.0.2",
     "izitoast": "^1.4.0",
     "lodash": "^4.17.21",
     "next": "^11.1.2",

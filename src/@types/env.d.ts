@@ -1,5 +1,5 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    SOME_ENV: string;
+    NEXT_PUBLIC_LOCAL_STORAGE_KEY: string;
   }
 }
