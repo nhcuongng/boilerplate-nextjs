@@ -1,16 +1,15 @@
+import { todoApi } from '@api/todoApi';
 import React, { useEffect, useState } from 'react';
-import { TTodo } from 'src/@types';
-import { API, ComposedError } from 'src/lib';
 import { v4 } from 'uuid';
 
-import styles from './form.module.scss';
+import styles from '../todoList.module.scss';
 
 type TProp = {
-  onDone: (todos: TTodo[]) => void;
-  todo?: TTodo;
+  onDone: (todos: Todo.State['TodoDetail'][]) => void;
+  todo?: Todo.State['TodoDetail'];
 };
 
-const initTodo: TTodo = {
+const initTodo: Todo.State['TodoDetail'] = {
   id: '',
   description: '',
   status: 'DOING',
@@ -25,7 +24,7 @@ export const Form: React.FC<TProp> = ({ onDone, todo = initTodo }) => {
     setNewTodo(todo);
   }, [todo]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof Pick<TTodo, 'title' | 'description'>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof Pick<Todo.State['TodoDetail'], 'title' | 'description'>) => {
     const temp = { ...newTodo };
     temp[field] = e.target.value;
     console.log(field, e.target.value);
@@ -35,7 +34,7 @@ export const Form: React.FC<TProp> = ({ onDone, todo = initTodo }) => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const bodyReq: TTodo = {
+      const bodyReq: TodoAPI.Request.Body.Update = {
         id: todo.id ? todo.id : v4(),
         description,
         title,
@@ -43,10 +42,10 @@ export const Form: React.FC<TProp> = ({ onDone, todo = initTodo }) => {
       };
 
       if (todo.id) {
-        const res = await API.put<TTodo[]>(`/todos/${todo.id}`, bodyReq);
+        const res = await todoApi.updateDetail({ id: todo.id }, bodyReq);
         onDone(res.data);
       } else {
-        const res = await API.post<TTodo[]>('/todos', bodyReq);
+        const res = await todoApi.createNewOne(bodyReq);
         onDone(res.data);
       }
     } catch (error) {

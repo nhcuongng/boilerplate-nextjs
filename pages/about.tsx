@@ -1,7 +1,7 @@
 import { Container } from '@components/layout';
+import styles from '@styles/card.module.scss';
 import { useRouter } from 'next/router';
 import React from 'react';
-import styles from '@styles/post.module.scss';
 
 type TProp = {
 

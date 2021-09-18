@@ -1,3 +1,12 @@
+@import '@styles/variable';
+
+.form {
+  input {
+    margin: 0px 5px;
+    font-weight: map-get($font-weights, "medium");
+  }
+}
+
 .list {
   list-style: none;
   padding: 0px;

@@ -39,7 +39,7 @@
   │   └── store
   ├── styles # Các styles cho pages
   │   ├── globals.css
-  │   └── post.module.scss
+  │   └── card.module.scss
 ```
 
 ## Scripts

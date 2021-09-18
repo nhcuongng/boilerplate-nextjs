@@ -1,6 +1,5 @@
+import { todoApi } from '@api/index';
 import React, { useCallback, useEffect, useState } from 'react';
-import { TStatus, TTodo } from 'src/@types';
-import { API } from 'src/lib';
 
 import { ModalEdit } from './editTodo';
 import { Form } from './form';
@@ -11,7 +10,7 @@ type TProp = {
 };
 
 export const TodoList: React.FC<TProp> = () => {
-  const [list, setList] = useState<TTodo[]>([]);
+  const [list, setList] = useState<Todo.State['TodoDetail'][]>([]);
   const [idEdit, setIdEdit] = useState('');
 
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +22,7 @@ export const TodoList: React.FC<TProp> = () => {
   useEffect(() => {
     (async () => {
       try {
-        const todos = await API.get<TTodo[]>('/todos');
+        const todos = await todoApi.getList();
         setList(todos.data);
       } catch (error) {
         // console.log(error);
@@ -35,12 +34,12 @@ export const TodoList: React.FC<TProp> = () => {
 
   const toggleStatus = (index: number) => {
     const temp = [...list];
-    const newStatus: TStatus = list[index].status === 'DONE' ? 'DOING' : 'DONE';
+    const newStatus: Todo.Status = list[index].status === 'DONE' ? 'DOING' : 'DONE';
     temp[index].status = newStatus;
     setList(temp);
   };
 
-  const handleAddNewTodo = (todos: TTodo[]) => {
+  const handleAddNewTodo = (todos: Todo.State['TodoDetail'][]) => {
     setList(todos);
     setIsOpen(false);
   };

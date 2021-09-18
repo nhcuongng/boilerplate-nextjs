@@ -1,5 +1,4 @@
-import CardStyle from '@styles/post.module.scss';
-import Head from 'next/head';
+import CardStyle from '@styles/card.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -15,12 +14,6 @@ export const Container: React.FC<TProp> = ({ children }) => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossOrigin="anonymous" />
-      </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           Todo App

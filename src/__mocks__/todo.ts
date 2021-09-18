@@ -1,6 +1,4 @@
-import { TTodo } from 'src/@types';
-
-export const TodoDummyData: TTodo[] = [
+export const TodoDummyData: Todo.State['TodoDetail'][] = [
   {
     id: '1',
     title: 'build Todo app by boiler plate',

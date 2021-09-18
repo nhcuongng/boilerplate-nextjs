@@ -1,3 +1,5 @@
+@import '@styles/variable';
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -51,6 +53,7 @@
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
+  color: map-get($colors, 'primary')
 }
 
 .title,
@@ -61,6 +64,7 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+  color: map-get($colors, 'secondary')
 }
 
 .code {

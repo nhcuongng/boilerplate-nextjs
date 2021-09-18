@@ -1,30 +1,28 @@
 import 'react-responsive-modal/styles.css';
 
+import { todoApi } from '@api/todoApi';
 import React, { useEffect, useState } from 'react';
 import { Modal } from 'react-responsive-modal';
-import { TTodo } from 'src/@types';
-import { API } from 'src/lib';
 
 import { Form } from '../form';
-import {} from './editTodo.module.scss';
 
 type TProp = {
   id: string;
   setIsOpen: () => void;
-  onDone:(todo: TTodo[]) => void;
+  onDone:(todo: Todo.State['TodoDetail'][]) => void;
   isOpen: boolean;
 };
 
 export const ModalEdit: React.FC<TProp> = ({
   id, isOpen, setIsOpen, onDone,
 }) => {
-  const [todo, setTodo] = useState<TTodo>();
+  const [todo, setTodo] = useState<Todo.State['TodoDetail']>();
 
   useEffect(() => {
     if (id && isOpen) {
       (async () => {
         try {
-          const res = await API.get(`/todos/${id}`);
+          const res = await todoApi.getDetail({ id });
           setTodo(res.data);
         } catch (error) {
           // ignore since error was handled globally
