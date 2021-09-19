@@ -30,6 +30,9 @@
       ],
       "@api/*": [
         "src/services/api/*"
+      ],
+      "@views/*": [
+        "src/views/*"
       ]
     }
   },

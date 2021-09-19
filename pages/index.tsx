@@ -1,7 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 
-import { TodoList } from '@components/home';
 import { Container } from '@components/layout';
+import { TodoList } from '@views/home';
 import React from 'react';
 
 /**
